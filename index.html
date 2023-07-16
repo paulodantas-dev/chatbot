@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rainbeam App</title>
     <link rel="stylesheet" href="style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Linking BoxIcon for Icon -->
     <link
       href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
       rel="stylesheet"
@@ -13,38 +12,41 @@
   </head>
   <body>
     <div class="wrapper">
-      <header><i class="bx bx-left-arrow-alt"></i>RainBeam App</header>
-      <section class="input-part">
-        <p class="info-txt"></p>
+      <header>
+        <i class="bx bx-left-arrow-alt"></i>
+        RainBeam App
+      </header>
+      <section class="input-search">
+        <p class="msg-txt"></p>
         <div class="content">
           <input
             type="text"
-            spellcheck="false"
+            id="cityInput"
             placeholder="Enter city name"
             required
           />
           <div class="separator"></div>
-          <button>Get Location</button>
+          <button id="getWeatherBtn">Get Weather</button>
         </div>
       </section>
-      <section class="weather-part">
-        <img src="" alt="Weather Icon" />
+      <!-- <section class="weather-part">
+        <img src="" alt="Weather Icon" id="weatherIcon" />
         <div class="temp">
-          <span class="numb">_</span>
-          <span class="deg">°</span>C
+          <span class="numb" id="temperature"></span>
+          <span class="deg">°C</span>
         </div>
-        <div class="weather">_ _</div>
+        <div class="weather" id="weatherDescription"></div>
         <div class="location">
           <i class="bx bx-map"></i>
-          <span>_, _</span>
+          <span id="location"></span>
         </div>
         <div class="bottom-details">
           <div class="column feels">
             <i class="bx bxs-thermometer"></i>
             <div class="details">
               <div class="temp">
-                <span class="numb-2">_</span>
-                <span class="deg">°</span>C
+                <span class="numb" id="feelsLikeTemperature"></span>
+                <span class="deg">°C</span>
               </div>
               <p>Feels like</p>
             </div>
@@ -52,12 +54,12 @@
           <div class="column humidity">
             <i class="bx bxs-droplet-half"></i>
             <div class="details">
-              <span>_</span>
+              <span id="humidity"></span>
               <p>Humidity</p>
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
     </div>
 
     <script src="script.js"></script>
