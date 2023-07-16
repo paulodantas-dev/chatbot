@@ -1,49 +1,59 @@
 /* Import Google Font - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+html {
+  font-size: 62.5%;
+}
+
 body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background: #43affc;
+  width: 100%;
+  height: 100vh;
+  background: #020617;
+  padding: 0 1.6rem;
 }
-::selection {
-  color: #fff;
-  background: #43affc;
-}
+
 .wrapper {
-  width: 400px;
-  background: #fff;
-  border-radius: 7px;
-  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
+  width: 42rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  background: #0f172a;
+  border-radius: 0.8rem;
+  box-shadow: 0 1.2rem 1.6rem 0.2rem hsla(0, 0%, 0%, 0.14),
+    0 0.4rem 2rem 0.4rem hsla(0, 0%, 0%, 0.12),
+    0 0.8rem 0.8rem -0.25rem hsla(0, 0%, 0%, 0.2);
 }
+
 .wrapper header {
   display: flex;
-  font-size: 21px;
+  font-size: 2rem;
   font-weight: 500;
-  color: #43affc;
-  padding: 16px 15px;
+  gap: 0.8rem;
+  color: #a78bfa;
+  padding: 1.6rem;
   align-items: center;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #1e293b;
 }
-header i {
-  font-size: 0em;
+
+.wrapper header i {
+  font-size: 0;
   cursor: pointer;
-  margin-right: 8px;
 }
+
 .wrapper.active header i {
-  margin-left: 5px;
-  font-size: 30px;
+  font-size: 2.8rem;
 }
-.wrapper .input-part {
-  margin: 20px 25px 30px;
-}
+
 .wrapper.active .input-part {
   display: none;
 }
