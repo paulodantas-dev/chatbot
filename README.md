@@ -8,7 +8,7 @@ Temp Check is a simple website that displays the current temperature of a specif
 
 ## Demo
 
-git
+- [live](https://weatherchecknow.vercel.app/)
 
 ## FAQ
 

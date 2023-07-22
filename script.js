@@ -1,10 +1,9 @@
 const arrowBack = document.querySelector("header i");
-
 const inputCard = document.querySelector(".input-card");
 const messageText = document.querySelector(".input-card_message__text");
 const inputField = document.querySelector("#input-card-input");
 const weatherBtn = document.querySelector("#input-card_button");
-
+const apiKey = "466c356b7c61ed8c98b8eb8295b662e2";
 const weatherCard = document.querySelector(".weather-card");
 const weatherIcon = document.querySelector("#weather-card_icon");
 const temperatureElement = document.querySelector(".weather-card_temperature");
@@ -14,8 +13,6 @@ const feelsElement = document.querySelector("#weather-card_action__feels");
 const humidityElement = document.querySelector(
   "#weather-card_action__humidity"
 );
-
-const apiKey = "466c356b7c61ed8c98b8eb8295b662e2";
 
 weatherBtn.addEventListener("click", getWeather);
 inputField.addEventListener("keyup", (e) => {
