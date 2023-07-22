@@ -1,51 +1,69 @@
-RainBeam App
-RainBeam App
+# Temp Check
 
-Visão Geral
-O RainBeam App é um website simples que mostra a temperatura atual de um local específico. Os usuários podem pesquisar por uma cidade ou permitir o acesso à sua localização atual para obter informações climáticas precisas.
+Temp Check is a simple website that displays the current temperature of a specific location. Users can search for a city or allow access to their current location to obtain accurate weather information.
 
-Demonstração
-RainBeam App Demo
+## Author
 
-Funcionalidades
-Pesquisar por cidade: Os usuários podem digitar o nome de uma cidade no campo de pesquisa e pressionar o botão "Get Weather" para obter a temperatura atual dessa cidade.
+- [@paulodantas-dev](https://github.com/paulodantas-dev)
 
-Localização Atual: Se o usuário permitir o acesso à sua localização, o RainBeam App exibirá automaticamente a temperatura atual da sua posição geográfica.
+## Demo
 
-Ícones Climáticos: O website exibe ícones que representam as condições climáticas atuais para melhor visualização.
+git
 
-Respostas de Erro: Caso ocorra algum erro durante a pesquisa, o RainBeam App informará ao usuário com mensagens claras e informativas.
+## FAQ
 
-Tecnologias Utilizadas
-HTML
-CSS (com a biblioteca Boxicons para ícones)
-JavaScript
-Instalação
-Clone este repositório em sua máquina local.
-bash
-Copy code
-git clone https://github.com/seu-usuario/rainbeam-app.git
-Navegue até o diretório do projeto.
-bash
-Copy code
-cd rainbeam-app
-Abra o arquivo "index.html" no seu navegador.
-Como Usar
-Digite o nome de uma cidade no campo de pesquisa e clique no botão "Get Weather" para obter a temperatura atual dessa cidade. Se preferir, clique no ícone de localização na parte superior esquerda para permitir o acesso à sua localização atual.
+#### How do I search for a city?
 
-A temperatura atual da cidade selecionada ou da sua localização será exibida juntamente com um ícone representativo das condições climáticas.
+To search for a city, simply type the name of the city in the search field and click the "Get Weather" button.
 
-Em caso de erro durante a pesquisa, uma mensagem informativa será exibida na parte inferior da tela para orientar o usuário.
+#### How do I allow access to my current location?
 
-Observações
-Certifique-se de ter uma conexão com a internet para que o website possa buscar as informações de temperatura.
+Click the location icon in the top left corner to allow access to your current location.
 
-O RainBeam App utiliza a API do OpenWeatherMap para obter os dados climáticos. Este serviço possui limites de chamadas e disponibilidade, portanto, em momentos de alta demanda, pode ocorrer atraso nas respostas.
+#### Can I get weather information for multiple cities?
 
-Este website é apenas uma demonstração simples e pode não conter todas as funcionalidades e tratamentos de erro completos para um aplicativo de produção.
+Currently, Temp Check supports weather information for one city at a time. You can search for a new city to get updated weather data.
 
-Como Contribuir
-Se você deseja contribuir para o projeto RainBeam App, sinta-se à vontade para enviar um pull request. Ficaremos felizes em receber melhorias, correções de bugs ou qualquer adição útil.
+## Funcionalidades
 
-Licença
-Este projeto é de código aberto e está sob a Licença MIT.
+- City Search: Users can type the name of a city in the search field and click the "Get Weather" button to retrieve the current temperature for that city.
+
+- Current Location: If users allow access to their location, Temp Check will automatically display the current temperature based on their geographical position.
+
+- Weather Icons: The website displays weather icons that represent the current weather conditions for better visualization.
+
+- Error Handling: If an error occurs during the search, Temp Check will provide users with clear and informative error messages.
+
+## Instalação
+
+Clone this repository to your local machine.
+
+```bash
+  git clone https://github.com/paulodantas-dev/tempcheck.git
+```
+
+Navigate to the project directory.
+
+```bash
+  cd temp-check
+```
+
+Open the "index.html" file in your web browser.
+
+## Stack utilizada
+
+- HTML
+- CSS (with Boxicons library for icons)
+- JavaScript
+
+## Notes
+
+- Make sure you have an internet connection so that the website can fetch weather information.
+
+- Temp Check utilizes the OpenWeatherMap API to obtain weather data. The API has rate limits and availability, so there might be delays in responses during high demand.
+
+- This website is a simple demonstration and may not include all the complete features and error handling required for a production application.
+
+## License
+
+This project is open source and available under the MIT License.
