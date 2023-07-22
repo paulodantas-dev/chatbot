@@ -6,6 +6,11 @@ Temp Check is a simple website that displays the current temperature of a specif
 
 - [@paulodantas-dev](https://github.com/paulodantas-dev)
 
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
 ## Demo
 
 - [live](https://weatherchecknow.vercel.app/)
