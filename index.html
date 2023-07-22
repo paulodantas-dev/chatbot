@@ -16,50 +16,50 @@
         <i class="bx bx-left-arrow-alt"></i>
         RainBeam App
       </header>
-      <section class="input-search">
-        <p class="msg-txt"></p>
-        <div class="content">
+      <section class="input-card active">
+        <p class="input-card_message__text"></p>
+        <div class="input-card_content">
           <input
             type="text"
-            id="cityInput"
+            id="input-card-input"
             placeholder="Enter city name"
             required
           />
-          <div class="separator"></div>
-          <button id="getWeatherBtn">Get Weather</button>
+          <div class="input-card_separator"></div>
+          <button id="input-card_button">Get Weather</button>
         </div>
       </section>
-      <!-- <section class="weather-part">
-        <img src="" alt="Weather Icon" id="weatherIcon" />
-        <div class="temp">
-          <span class="numb" id="temperature"></span>
-          <span class="deg">°C</span>
-        </div>
-        <div class="weather" id="weatherDescription"></div>
-        <div class="location">
+      <section class="weather-card">
+        <img id="weather-card_icon" src="icons/cloud.svg" alt="Weather Icon" />
+
+        <span class="weather-card_temperature"></span>
+
+        <span class="weather-card_weather"></span>
+
+        <div class="weather-card_location">
           <i class="bx bx-map"></i>
-          <span id="location"></span>
+          <span id="weather-card_location__text"></span>
         </div>
-        <div class="bottom-details">
-          <div class="column feels">
+
+        <div class="weather-card_action">
+          <div class="weather-card_action__feels">
             <i class="bx bxs-thermometer"></i>
-            <div class="details">
-              <div class="temp">
-                <span class="numb" id="feelsLikeTemperature"></span>
-                <span class="deg">°C</span>
-              </div>
+
+            <div>
+              <span id="weather-card_action__feels"></span>
               <p>Feels like</p>
             </div>
           </div>
-          <div class="column humidity">
+          <div class="weather-card_action__humidity">
             <i class="bx bxs-droplet-half"></i>
-            <div class="details">
-              <span id="humidity"></span>
+
+            <div>
+              <span id="weather-card_action__humidity"></span>
               <p>Humidity</p>
             </div>
           </div>
         </div>
-      </section> -->
+      </section>
     </div>
 
     <script src="script.js"></script>

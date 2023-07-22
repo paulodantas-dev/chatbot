@@ -1,26 +1,39 @@
-const wrapper = document.querySelector(".wrapper");
-const msgTxt = document.querySelector(".msg-txt");
-const inputField = document.querySelector("#cityInput");
-const getWeatherBtn = document.querySelector("#getWeatherBtn");
-const weatherPart = document.querySelector(".weather-part");
-const weatherIcon = document.querySelector("#weatherIcon");
-const temperatureElement = document.querySelector("#temperature");
-const weatherDescriptionElement = document.querySelector("#weatherDescription");
-const locationElement = document.querySelector("#location");
-const feelsLikeTemperatureElement = document.querySelector(
-  "#feelsLikeTemperature"
-);
-const humidityElement = document.querySelector("#humidity");
 const arrowBack = document.querySelector("header i");
 
-const apiKey = "466c356b7c61ed8c98b8eb8295b662e2"; // Substitua com a sua chave de API do OpenWeatherMap
+const inputCard = document.querySelector(".input-card");
+const messageText = document.querySelector(".input-card_message__text");
+const inputField = document.querySelector("#input-card-input");
+const weatherBtn = document.querySelector("#input-card_button");
 
-getWeatherBtn.addEventListener("click", getWeather);
+const weatherCard = document.querySelector(".weather-card");
+const weatherIcon = document.querySelector("#weather-card_icon");
+const temperatureElement = document.querySelector(".weather-card_temperature");
+const weatherElement = document.querySelector(".weather-card_weather");
+const locationElement = document.querySelector("#weather-card_location__text");
+const feelsElement = document.querySelector("#weather-card_action__feels");
+const humidityElement = document.querySelector(
+  "#weather-card_action__humidity"
+);
+
+const apiKey = "466c356b7c61ed8c98b8eb8295b662e2";
+
+weatherBtn.addEventListener("click", getWeather);
 inputField.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     getWeather();
   }
 });
+
+arrowBack.addEventListener("click", () => {
+  showInputCard();
+});
+
+function showInputCard() {
+  weatherCard.classList.remove("active");
+  inputCard.classList.remove("hidden");
+  inputCard.classList.add("active");
+  arrowBack.classList.remove("active");
+}
 
 function getWeather() {
   const city = inputField.value.trim();
@@ -29,14 +42,11 @@ function getWeather() {
   }
 
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-
   fetchWeatherData(apiUrl);
 }
 
 function fetchWeatherData(apiUrl) {
-  msgTxt.textContent = "Getting weather details...";
-  msgTxt.classList.add("pending");
-
+  showLoadingMessage("Getting weather details...");
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
@@ -52,57 +62,48 @@ function fetchWeatherData(apiUrl) {
     });
 }
 
-function getWeatherIcon(id) {
-  if (id == 800) {
-    return (weatherIcon.src = "icons/clear.svg");
-  } else if (id >= 200 && id <= 232) {
-    return (weatherIcon.src = "icons/storm.svg");
-  } else if (id >= 600 && id <= 622) {
-    return (weatherIcon.src = "icons/snow.svg");
-  } else if (id >= 701 && id <= 781) {
-    return (weatherIcon.src = "icons/haze.svg");
-  } else if (id >= 801 && id <= 804) {
-    return (weatherIcon.src = "icons/cloud.svg");
-  } else if ((id >= 500 && id <= 531) || (id >= 300 && id <= 321)) {
-    return (weatherIcon.src = "icons/rain.svg");
-  }
-}
-
 function showWeatherData(data) {
   const { name, sys, weather, main } = data;
-
   const icon = getWeatherIcon(weather[0].id);
 
   weatherIcon.src = icon;
-  temperatureElement.textContent = Math.round(main.temp);
-  weatherDescriptionElement.textContent = weather[0].description;
+  temperatureElement.textContent = `${Math.round(main.temp)}°C`;
+  weatherElement.textContent = weather[0].description.toUpperCase();
   locationElement.textContent = `${name}, ${sys.country}`;
-  feelsLikeTemperatureElement.textContent = Math.round(main.feels_like);
+  feelsElement.textContent = `${Math.round(main.feels_like)}°C`;
   humidityElement.textContent = `${main.humidity}%`;
 
-  msgTxt.textContent = "";
-  msgTxt.classList.remove("pending");
-  wrapper.classList.add("active");
-  clearInput();
+  hideMessage();
+  showWeatherCard();
+}
+
+function showWeatherCard() {
+  inputCard.classList.remove("active");
+  inputCard.classList.add("hidden");
+
+  arrowBack.classList.add("active");
+
+  weatherCard.classList.add("active");
+}
+
+function showLoadingMessage(message) {
+  messageText.textContent = message;
+  messageText.classList.add("pending");
 }
 
 function showError(message) {
-  msgTxt.textContent = message;
-  msgTxt.classList.add("error");
+  messageText.textContent = message;
+  messageText.classList.add("error");
 }
 
-function clearInput() {
-  inputField.value = "";
+function hideMessage() {
+  messageText.textContent = "";
+  messageText.classList.remove("pending", "error");
 }
-
-arrowBack.addEventListener("click", () => {
-  wrapper.classList.remove("active");
-});
 
 function getCurrentLocationWeather() {
   if (navigator.geolocation) {
-    msgTxt.textContent = "Getting current location...";
-    msgTxt.classList.add("pending");
+    showLoadingMessage("Getting current location...");
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
@@ -116,5 +117,24 @@ function getCurrentLocationWeather() {
     );
   } else {
     showError("Geolocation is not supported by your browser.");
+  }
+}
+
+function getWeatherIcon(id) {
+  switch (true) {
+    case id == 800:
+      return "icons/clear.svg";
+    case id >= 200 && id <= 232:
+      return "icons/storm.svg";
+    case id >= 600 && id <= 622:
+      return "icons/snow.svg";
+    case id >= 701 && id <= 781:
+      return "icons/haze.svg";
+    case id >= 801 && id <= 804:
+      return "icons/cloud.svg";
+    case (id >= 500 && id <= 531) || (id >= 300 && id <= 321):
+      return "icons/rain.svg";
+    default:
+      return "icons/cloud.svg";
   }
 }
